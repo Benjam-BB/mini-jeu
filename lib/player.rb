@@ -16,7 +16,7 @@ class Player
 
     def show_state
         unless life_points > 0
-        puts "#{@name} est mort avec #{@life_points} points de vie"
+        puts "#{@name} est mort" #avec #{@life_points} points de vie
         else 
         puts "#{@name} a #{@life_points} points de vie"
         end
@@ -26,8 +26,10 @@ class Player
         damage = damage.to_i
         @life_points -= damage 
         if @life_points <= 0
-           #pour que jamais la valeur de life_point soit en dessous de 0
-           puts "Le joueur #{@name} a été tué !"
+           puts "Le joueur #{@name} est mort !"
+        end
+        if @life_points < 0
+            @life_points = 0           #pour que jamais la valeur de life_point soit en dessous de 0
         end
     end
 
@@ -77,17 +79,17 @@ class HumanPlayer < Player
         if health_pack == 1
             puts "...Scheisse, tu n'as rien trouvé... "
         elsif health_pack == 6
-            if life_points <= 20
+            if @life_points <= 20
             @life_points += 80
             else 
                 @life_points = 100
             end
             puts "...Waow, tu as trouvé un pack de +80 points de vie !"
         else
-            if life_points <= 50
+            if @life_points <= 50
             @life_points += 50
             else
-                life_points = 100
+                @life_points = 100
             end
             puts "...Bravo, tu as trouvé un pack de +50 points de vie !"
         end

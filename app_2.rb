@@ -40,7 +40,7 @@ puts "...de nombreux méchants te guettent sur la route !"
 
 @enemies =  []
 player1 = Player.new("Gros Pas Bo")
-player2 = Player.new("Gros Vilain")
+player2 = Player.new("Super Vilain")
 @enemies << player1
 @enemies << player2
 
@@ -58,13 +58,14 @@ while hero.life_points >0 && (player1.life_points > 0 || player2.life_points >0)
     action = gets.chomp
     puts " "
     if action == "a" #les différentes actions
-        puts hero.search_weapon
+        hero.search_weapon
     elsif action == "s"
-       puts hero.search_health_pack
+       hero.search_health_pack
+       hero.show_state
     elsif action == "0"
-        puts hero.attacks(player1)
+        hero.attacks(player1)
     elsif action == "1"
-        puts hero.attacks(player2)
+        hero.attacks(player2)
     else 
         puts "Veuillez choisir une des actions"
     end
@@ -74,14 +75,14 @@ while hero.life_points >0 && (player1.life_points > 0 || player2.life_points >0)
         total_life_points << enemy.life_points
     end
 
-    if total_life_points.sum <= 0 #si la somme des points de vie des échants est nulles
+    if total_life_points.sum <= 0 #si la somme des points de vie des ennemis est nulle alors on stop la boucle while en cours
         break
     else
-        puts "Les autres joueurs t'attaquent !" #attaquent des méchants
+        puts "Les autres joueurs t'attaquent !" #attaque des ennemis
         @enemies.each{ |enemy|
             if enemy.life_points > 0 then enemy.attacks(hero) end}
             puts "\n"
-            puts "> press any key to continue"
+            puts "> press ENTER to continue"
             gets.chomp
     end
 end

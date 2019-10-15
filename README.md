@@ -12,7 +12,7 @@ Il déroule le jeu sans méthode.
 ## app_3.rb
 Lance un jeu de combat entre un joueur humain et 4 ennemis. 
 
-C'est une version du jeu amélioré et surtout plus scalable grâce aux méthodes.
+C'est une version du jeu amélioré et surtout plus scalable grâce aux méthodes dans la class Games.
 
 ## player.rb
 Lance 2 class

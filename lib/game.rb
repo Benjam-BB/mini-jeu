@@ -56,7 +56,7 @@ class Game
 		puts "\n> Attention le(s) vilain(s) attaque(nt) :"
         @enemies.each {|enemi| enemi.attacks(@human_player)}
         else
-        puts "\nHey me je crois bien que tu as dégommé tous les vilains ! "
+        puts "\nWaouh ! Je crois bien que tu as dégommé tous les vilains ! "
         end
     end
     

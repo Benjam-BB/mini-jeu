@@ -55,7 +55,6 @@ while my_game.is_still_ongoing? == true
     puts "\nPress ENTER to continue"
     print "> "
     gets.chomp
-
 end
 
 my_game.the_end
